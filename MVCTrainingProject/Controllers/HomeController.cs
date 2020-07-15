@@ -12,5 +12,23 @@ namespace MVCTrainingProject.Controllers
             IEnumerable<Employees> employees = dbContext.Employees;
             return View(employees);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employees model)
+        {
+            if (ModelState.IsValid)
+            {
+                MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+                dbContext.Employees.Add(model);
+                dbContext.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
