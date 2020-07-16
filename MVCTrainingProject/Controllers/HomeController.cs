@@ -19,16 +19,47 @@ namespace MVCTrainingProject.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Edit(int? Id)
+        {
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+            Employees employee = dbContext.Employees.Find(Id);
+            return View(employee);
+        }
+
         [HttpPost]
-        public ActionResult Create(Employees model)
+        public ActionResult Edit(Employees empData)
+        {
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+            Employees employee = dbContext.Employees.Find(empData.Id);
+            employee.EmpName = empData.EmpName;
+            employee.Email = empData.Email;
+            employee.Phone = empData.Phone;
+            employee.Address = empData.Address;
+            dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Create(EmployeeCreateModel empData)
         {
             if (ModelState.IsValid)
             {
                 MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-                dbContext.Employees.Add(model);
+
+                Employees employee = new Employees
+                {
+                    EmpName = empData.EmpName,
+                    Email = empData.Email,
+                    Phone = empData.Phone,
+                    Address = empData.Address
+                };
+
+                dbContext.Employees.Add(employee);
                 dbContext.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View();
         }
     }
 }

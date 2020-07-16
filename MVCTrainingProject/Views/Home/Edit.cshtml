@@ -1,0 +1,47 @@
+﻿@model Employees
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="hidden" id="hidden" value="@Model.Id" />
+    <input type="text" id="name" value="@Model.EmpName" />
+    <input type="text" id="email" value="@Model.Email" />
+    <input type="text" id="phone" value="@Model.Phone" />
+    <input type="text" id="address" value="@Model.Address" />
+    <input type="button" id="btnUpdate" value="Update" class="btn btn-primary" />
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnUpdate").on("click", function () {
+                var empData = {
+                    Id: $("#hidden").val(),
+                    EmpName: $("#name").val(),
+                    email: $("#email").val(),
+                    phone: $("#phone").val(),
+                    address: $("#address").val()
+                };
+
+                alert(JSON.stringify(empData));
+
+                $.ajax({
+                    method: "POST",
+                    url: "/Home/Edit",
+                    data: { empData },
+                    success: function (res) {
+                        window.location.href = "/Home/Index";
+                    },
+                    error: function (err) {
+                        alert("Error in saving data.");
+                    }
+                });
+            });
+        });
+    </script>
+}
+
