@@ -1,4 +1,5 @@
 ﻿using MVCTrainingProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -60,6 +61,21 @@ namespace MVCTrainingProject.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? Id)
+        {
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+
+            Employees employeeDelete = dbContext.Employees.Find(Id);
+            if (employeeDelete != null)
+            {
+                dbContext.Employees.Remove(employeeDelete);
+                dbContext.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
