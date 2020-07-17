@@ -17,26 +17,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmpName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @for (int i = 0; i < Model.Count() - 1; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i).EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i).Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i).Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i).Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).Id }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).Id })
+            </td>
+        </tr>
+    }
 
 </table>
