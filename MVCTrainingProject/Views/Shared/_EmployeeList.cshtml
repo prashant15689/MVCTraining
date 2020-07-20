@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Employees>
+
+@for (int index = 0; index < Model.Count(); index++)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ElementAt(index).EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ElementAt(index).Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ElementAt(index).Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ElementAt(index).Address)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(index).Id }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(index).Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(index).Id })
+        </td>
+    </tr>
+}
