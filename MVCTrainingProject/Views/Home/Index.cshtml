@@ -9,4 +9,23 @@
 <p>
     @Html.ActionLink("Create New Employee", "Create")
 </p>
-@Html.Partial("View", Model)
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+   @Html.Partial("_EmployeeList", Model)
+
+</table>

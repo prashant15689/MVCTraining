@@ -27,16 +27,16 @@
                     address: $("#address").val()
                 };
 
-                console.log(empData);
-
                 $.ajax({
                     method: "POST",
                     url: "/Home/Edit",
                     data: { empData },
                     success: function (res) {
+                        console.log(res.responseText);
                         window.location.href = "/Home/Index";
                     },
                     error: function (err) {
+                        console.log(err.responseText);
                         alert("Error in saving data.");
                     }
                 });
