@@ -1,0 +1,13 @@
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\MVCTrainingProject.Models.dll
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\MVCTrainingProject.Models.pdb
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.csproj.CoreCompileInputs.cache
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.dll
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.pdb
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\MVCTrainingProject.Models.dll.config
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\EntityFramework.dll
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\EntityFramework.xml
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.csproj.CopyComplete
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\App.Config
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.csprojAssemblyReference.cache
