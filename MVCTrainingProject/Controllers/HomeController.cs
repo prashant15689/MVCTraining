@@ -8,6 +8,7 @@ namespace MVCTrainingProject.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();

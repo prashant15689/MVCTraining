@@ -139,26 +139,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmployeeCreateModel.cs" />
-    <Compile Include="Models\EmployeeDataLogic.cs" />
-    <Compile Include="Models\Employees.cs">
-      <DependentUpon>TrainingDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,23 +152,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\TrainingDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TrainingDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>TrainingDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\TrainingDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TrainingDataModel.edmx</DependentUpon>
-      <LastGenOutput>TrainingDataModel.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\TrainingDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TrainingDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\TrainingDataModel.edmx.diagram">
-      <DependentUpon>TrainingDataModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -320,7 +283,12 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Shared\_EmployeeList.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MVCTrainingProject.Models\MVCTrainingProject.Models.csproj">
+      <Project>{20e861ce-d6d1-4b37-a575-8955461d0994}</Project>
+      <Name>MVCTrainingProject.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
