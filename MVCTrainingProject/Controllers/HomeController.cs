@@ -69,14 +69,7 @@ namespace MVCTrainingProject.Controllers
         [HttpGet]
         public ActionResult Delete(int? Id)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-
-            Employees employeeDelete = dbContext.Employees.Find(Id);
-            if (employeeDelete != null)
-            {
-                dbContext.Employees.Remove(employeeDelete);
-                dbContext.SaveChanges();
-            }
+            new EmployeeDataLogic().DeleteEmployee(Id.Value);
 
             return RedirectToAction("Index");
         }

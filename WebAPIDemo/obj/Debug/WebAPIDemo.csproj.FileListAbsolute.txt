@@ -72,3 +72,5 @@ D:\Projects\GraphicsChetuTraining\MVCTraining\WebAPIDemo\bin\roslyn\System.Buffe
 D:\Projects\GraphicsChetuTraining\MVCTraining\WebAPIDemo\bin\roslyn\System.Memory.dll
 D:\Projects\GraphicsChetuTraining\MVCTraining\WebAPIDemo\bin\roslyn\System.Numerics.Vectors.dll
 D:\Projects\GraphicsChetuTraining\MVCTraining\WebAPIDemo\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\GraphicsChetuTraining\MVCTraining\WebAPIDemo\bin\WebAPIDemo.dll.CodeAnalysisLog.xml
+D:\Projects\GraphicsChetuTraining\MVCTraining\WebAPIDemo\bin\WebAPIDemo.dll.lastcodeanalysissucceeded

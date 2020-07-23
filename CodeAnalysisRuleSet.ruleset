@@ -591,6 +591,9 @@
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
     <Rule Id="AD0001" Action="None" />
     <Rule Id="CS0028" Action="None" />
+    <Rule Id="CS0078" Action="Error" />
+    <Rule Id="CS0105" Action="Error" />
+    <Rule Id="CS0108" Action="Error" />
     <Rule Id="CS0164" Action="None" />
     <Rule Id="CS0168" Action="None" />
     <Rule Id="CS0183" Action="None" />

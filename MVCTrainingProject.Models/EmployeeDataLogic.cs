@@ -47,5 +47,17 @@ namespace MVCTrainingProject.Models
             dbContext.SaveChanges();
             return employee;
         }
+
+        public void DeleteEmployee(int id)
+        {
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+
+            Employees employeeDelete = dbContext.Employees.Find(id);
+            if (employeeDelete != null)
+            {
+                dbContext.Employees.Remove(employeeDelete);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

@@ -10,3 +10,4 @@ D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debu
 D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.csproj.CopyComplete
 D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\bin\Debug\App.Config
+D:\Projects\GraphicsChetuTraining\MVCTraining\MVCTrainingProject.Models\obj\Debug\MVCTrainingProject.Models.csprojAssemblyReference.cache
