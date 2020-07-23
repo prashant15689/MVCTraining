@@ -1,7 +1,10 @@
 ﻿using Microsoft.Ajax.Utilities;
 using MVCTrainingProject.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace MVCTrainingProject.Controllers
@@ -9,11 +12,16 @@ namespace MVCTrainingProject.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-            IEnumerable<Employees> employees = dbContext.Employees;
-            return View(employees);
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync("https://localhost:44300/api/values");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                IEnumerable<Employees> employees = JsonConvert.DeserializeObject<IEnumerable<Employees>>(responseBody); ;
+                return View(employees);
+            }
         }
 
         [HttpGet]
@@ -25,21 +33,25 @@ namespace MVCTrainingProject.Controllers
         [HttpGet]
         public ActionResult Edit(int? Id)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-            Employees employee = dbContext.Employees.Find(Id);
-            return View(employee);
+            EmployeeDataLogic dataLogic = new EmployeeDataLogic();
+
+            if (Id != null)
+            {
+                return View(dataLogic.GetEmployeById(Id.Value));
+            }
+            else 
+            {
+                //return RedirectToAction("Index");
+
+                return Content("No employee found <br/> <a href='/Home/Index'>Employee List</a>");
+            }
         }
 
         [HttpPost]
         public ActionResult Edit(Employees empData)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-            Employees employee = dbContext.Employees.Find(empData.Id);
-            employee.EmpName = empData.EmpName;
-            employee.Email = empData.Email;
-            employee.Phone = empData.Phone;
-            employee.Address = empData.Address;
-            dbContext.SaveChanges();
+            EmployeeDataLogic dataLogic = new EmployeeDataLogic();
+            dataLogic.UpdateEmployee(empData);
             return RedirectToAction("Index");
         }
 
@@ -48,18 +60,7 @@ namespace MVCTrainingProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-
-                Employees employee = new Employees
-                {
-                    EmpName = empData.EmpName,
-                    Email = empData.Email,
-                    Phone = empData.Phone,
-                    Address = empData.Address
-                };
-
-                dbContext.Employees.Add(employee);
-                dbContext.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             return View();

@@ -4,40 +4,47 @@
 }
 
 <h2>Edit</h2>
-
-@using (Html.BeginForm())
+@if (Model != null)
 {
-    <input type="hidden" id="hidden" value="@Model.Id" />
-    <div class="form-group">
-        <label for="@Model.EmpName" class="control-label col-md-2">Name</label>
-        <div class="col-md-10">
-            <input type="text" id="name" class="form-control" value="@Model.EmpName" />
+    using (Html.BeginForm())
+    {
+        <input type="hidden" id="hidden" value="@Model.Id" />
+        <div class="form-group">
+            <label for="@Model.EmpName" class="control-label col-md-2">Name</label>
+            <div class="col-md-10">
+                <input type="text" id="name" class="form-control" value="@Model.EmpName" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="@Model.Email" class="control-label col-md-2">Email</label>
-        <div class="col-md-10">
-            <input type="text" id="email" class="form-control" value="@Model.Email" />
+        <div class="form-group">
+            <label for="@Model.Email" class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                <input type="text" id="email" class="form-control" value="@Model.Email" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="@Model.Phone" class="control-label col-md-2">Phone</label>
-        <div class="col-md-10">
-            <input type="text" id="phone" class="form-control" value="@Model.Phone" />
+        <div class="form-group">
+            <label for="@Model.Phone" class="control-label col-md-2">Phone</label>
+            <div class="col-md-10">
+                <input type="text" id="phone" class="form-control" value="@Model.Phone" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="@Model.Address" class="control-label col-md-2">Address</label>
-        <div class="col-md-10">
-            <input type="text" id="address" class="form-control" value="@Model.Address" />
+        <div class="form-group">
+            <label for="@Model.Address" class="control-label col-md-2">Address</label>
+            <div class="col-md-10">
+                <input type="text" id="address" class="form-control" value="@Model.Address" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="button" id="btnUpdate" value="Update" class="btn btn-primary" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="btnUpdate" value="Update" class="btn btn-primary" />
+            </div>
         </div>
-    </div>
+    }}
+else
+{
+    <text>Employee doesn not exists.</text>
 }
+
+@Html.ActionLink("Employee List", "Index")
 
 @section Scripts{
     <script type="text/javascript">

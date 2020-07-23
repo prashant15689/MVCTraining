@@ -4,12 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h4>Employees</h4>
 
-<p>
-    @Html.ActionLink("Create New Employee", "Create")
-</p>
-<table class="table">
+<div class="row">
+    <div class="col-sm-6">Employees</div>
+    <div class="col-sm-6 text-right">
+        @Html.ActionLink("Create New Employee", "Create", new { }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="clearfix"></div>
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.EmpName)
@@ -23,9 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
-   @Html.Partial("_EmployeeList", Model)
+    @Html.Partial("_EmployeeList", Model)
 
 </table>
