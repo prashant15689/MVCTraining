@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTrainingProject", "MVCTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTrainingProject.Models", "MVCTrainingProject.Models\MVCTrainingProject.Models.csproj", "{20E861CE-D6D1-4B37-A575-8955461D0994}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIDemo", "WebAPIDemo\WebAPIDemo.csproj", "{B95760C7-7138-413E-A19A-95E11347B71F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{20E861CE-D6D1-4B37-A575-8955461D0994}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20E861CE-D6D1-4B37-A575-8955461D0994}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20E861CE-D6D1-4B37-A575-8955461D0994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95760C7-7138-413E-A19A-95E11347B71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95760C7-7138-413E-A19A-95E11347B71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95760C7-7138-413E-A19A-95E11347B71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95760C7-7138-413E-A19A-95E11347B71F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

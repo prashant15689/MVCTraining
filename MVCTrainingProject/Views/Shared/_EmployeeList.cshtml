@@ -16,10 +16,11 @@
             @Html.DisplayFor(modelItem => Model.ElementAt(index).Address)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(index).Id }) |
-            @*@Html.ActionLink("Details", "Details", new { id = Model.ElementAt(index).Id }) |*@
-            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(index).Id }, 
-           new { @onclick = "return confirm(\"Are you sure to delete this employee?\")"})
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(index).Id }, 
+           new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(index).Id },
+           new { @onclick = "return confirm(\"Are you sure to delete this employee?\")",
+               @class="btn btn-danger"})
         </td>
     </tr>
 }

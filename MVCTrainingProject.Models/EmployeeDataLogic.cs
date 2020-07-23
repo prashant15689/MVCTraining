@@ -7,23 +7,45 @@ namespace MVCTrainingProject.Models
 {
     public class EmployeeDataLogic
     {
-        public string Get()
+        public IEnumerable<Employees> GetAllEmployees()
         {
-            return "Hello";
-        }
-        public string Get(string name)
-        {
-            return name;
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+            IEnumerable<Employees> employees = dbContext.Employees;
+            return employees;
         }
 
-        public string Get(string name, int Id)
+        public Employees GetEmployeById(int id)
         {
-            return name + " - ID: " + Id.ToString();
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+            return dbContext.Employees.Find(id);            
         }
 
-        public void Get(string name, object model)
+        public void UpdateEmployee(Employees empData)
         {
-            // ksdj
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+            Employees employee = dbContext.Employees.Find(empData.Id);
+            employee.EmpName = empData.EmpName;
+            employee.Email = empData.Email;
+            employee.Phone = empData.Phone;
+            employee.Address = empData.Address;
+            dbContext.SaveChanges();
+        }
+
+        public Employees CreateEmployee(Employees empData)
+        {
+            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
+
+            Employees employee = new Employees
+            {
+                EmpName = empData.EmpName,
+                Email = empData.Email,
+                Phone = empData.Phone,
+                Address = empData.Address
+            };
+
+            dbContext.Employees.Add(employee);
+            dbContext.SaveChanges();
+            return employee;
         }
     }
 }
