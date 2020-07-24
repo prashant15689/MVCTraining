@@ -33,13 +33,24 @@ namespace WebAPIDemo.Controllers
         public IHttpActionResult Put([FromBody] Employees employee)
         {
             new EmployeeDataLogic().UpdateEmployee(employee);
-            return Ok(new {message = "Updated", status = "success", data = employee });
+            return Ok(new
+            {
+                message = "Updated",
+                status = "success",
+                data = employee
+            });
         }
 
         // DELETE api/values/5
-        public void Delete()
+        public IHttpActionResult Delete(int id)
         {
-
+            new EmployeeDataLogic().DeleteEmployee(id);
+            return Ok(new
+            {
+                message = $"Deleted employee with Id: {id}",
+                status = "success",
+                data = string.Empty
+            });
         }
     }
 }
