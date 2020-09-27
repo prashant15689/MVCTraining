@@ -39,7 +39,7 @@ namespace MVCTrainingProject.Controllers
             {
                 return View(dataLogic.GetEmployeById(Id.Value));
             }
-            else 
+            else
             {
                 //return RedirectToAction("Index");
 
@@ -60,7 +60,15 @@ namespace MVCTrainingProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                Employees employee = new Employees
+                {
+                    Address = empData.Address,
+                    Email = empData.Email,
+                    EmpName = empData.EmpName,
+                    Phone = empData.Phone
+                };
+                EmployeeDataLogic dataLogic = new EmployeeDataLogic();
+                dataLogic.CreateEmployee(employee);
                 return RedirectToAction("Index");
             }
             return View();

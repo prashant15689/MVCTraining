@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="MVCTrainingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="MVCTrainingDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MVCTrainingDBModelStoreContainer">
+    <EntitySet Name="Employees" EntityType="MVCTrainingDBModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
   <EntityType Name="Employees">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EmpName" Type="varchar" MaxLength="50" />
-    <Property Name="Email" Type="varchar" MaxLength="100" />
-    <Property Name="Phone" Type="varchar" MaxLength="20" />
-    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="EmpName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Email" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="100" />
   </EntityType>
-  <EntityContainer Name="MVCTrainingDBModelStoreContainer">
-    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
-  </EntityContainer>
 </Schema>
