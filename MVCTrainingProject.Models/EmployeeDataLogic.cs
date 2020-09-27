@@ -9,54 +9,63 @@ namespace MVCTrainingProject.Models
     {
         public IEnumerable<Employees> GetAllEmployees()
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-            IEnumerable<Employees> employees = dbContext.Employees;
+            List<Employees> employees;
+            using (MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities())
+            {
+                employees = dbContext.Employees.ToList();
+            }
             return employees;
         }
 
         public Employees GetEmployeById(int id)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-            return dbContext.Employees.Find(id);            
+            using (MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities())
+            {
+                return dbContext.Employees.Find(id);
+            }
         }
 
         public void UpdateEmployee(Employees empData)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-            Employees employee = dbContext.Employees.Find(empData.Id);
-            employee.EmpName = empData.EmpName;
-            employee.Email = empData.Email;
-            employee.Phone = empData.Phone;
-            employee.Address = empData.Address;
-            dbContext.SaveChanges();
+            using (MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities())
+            {
+                Employees employee = dbContext.Employees.Find(empData.Id);
+                employee.EmpName = empData.EmpName;
+                employee.Email = empData.Email;
+                employee.Phone = empData.Phone;
+                employee.Address = empData.Address;
+                dbContext.SaveChanges();
+            }
         }
 
         public Employees CreateEmployee(Employees empData)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-
-            Employees employee = new Employees
+            using (MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities())
             {
-                EmpName = empData.EmpName,
-                Email = empData.Email,
-                Phone = empData.Phone,
-                Address = empData.Address
-            };
+                Employees employee = new Employees
+                {
+                    EmpName = empData.EmpName,
+                    Email = empData.Email,
+                    Phone = empData.Phone,
+                    Address = empData.Address
+                };
 
-            dbContext.Employees.Add(employee);
-            dbContext.SaveChanges();
-            return employee;
+                dbContext.Employees.Add(employee);
+                dbContext.SaveChanges();
+                return employee;
+            }
         }
 
         public void DeleteEmployee(int id)
         {
-            MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities();
-
-            Employees employeeDelete = dbContext.Employees.Find(id);
-            if (employeeDelete != null)
+            using (MVCTrainingDBEntities dbContext = new MVCTrainingDBEntities())
             {
-                dbContext.Employees.Remove(employeeDelete);
-                dbContext.SaveChanges();
+                Employees employeeDelete = dbContext.Employees.Find(id);
+                if (employeeDelete != null)
+                {
+                    dbContext.Employees.Remove(employeeDelete);
+                    dbContext.SaveChanges();
+                }
             }
         }
     }

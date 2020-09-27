@@ -24,6 +24,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CodeAnalysisRuleSet.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -96,6 +98,7 @@
       <LastGenOutput>TrainingDataModel.Context.cs</LastGenOutput>
       <DependentUpon>TrainingDataModel.edmx</DependentUpon>
     </Content>
+    <Content Include="TrainingDataModel.edmx.sql" />
     <Content Include="TrainingDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TrainingDataModel.edmx</DependentUpon>
